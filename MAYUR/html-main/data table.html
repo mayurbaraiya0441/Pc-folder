@@ -1,0 +1,98 @@
+<html> 
+<head> 
+<!-- jQuery -->
+<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.5.1.js"> 
+</script> 
+
+<!-- DataTables CSS -->
+<link rel="stylesheet"
+		href= 
+"https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"> 
+
+<!-- DataTables JS -->
+<script src= 
+"https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"> 
+</script> 
+<style> 
+	td{ 
+	text-align:center; 
+	} 
+</style> 
+</head> 
+<body> 
+<h2 style="color:green;"> 
+	GeeksforGeeks 
+</h2> 
+<h3>DataTables displayStart Option</h3> 
+
+<!-- HTML table with random data -->
+<table id="tableID" class="display nowrap"> 
+	<thead> 
+	<tr> 
+		<th>Number</th> 
+		<th>Name</th> 
+	</tr> 
+	</thead> 
+	<tbody> 
+	<tr> 
+		<td>1</td> 
+		<td>One</td> 
+	</tr> 
+	<tr> 
+		<td>2</td> 
+		<td>Two</td> 
+	</tr> 
+	<tr> 
+		<td>3</td> 
+		<td>Three</td> 
+	</tr> 
+	<tr> 
+		<td>4</td> 
+		<td>Four</td> 
+	</tr> 
+	<tr> 
+		<td>5</td> 
+		<td>Five</td> 
+	</tr> 
+	<tr> 
+		<td>6</td> 
+		<td>Six</td> 
+	</tr> 
+	<tr> 
+		<td>7</td> 
+		<td>Seven</td> 
+	</tr> 
+	<tr> 
+		<td>8</td> 
+		<td>Eight</td> 
+	</tr> 
+	<tr> 
+		<td>9</td> 
+		<td>Nine</td> 
+	</tr> 
+	<tr> 
+		<td>10</td> 
+		<td>Ten</td> 
+	</tr> 
+	</tbody> 
+</table> 
+<script> 
+
+	// Initialize the DataTable 
+	$(document).ready(function () { 
+	$('#tableID').DataTable({ 
+
+		lengthMenu: [ 5, 10 ] ,
+		
+		// Set the starting row 
+		// of the DataTable 
+		displayStart: 7
+    
+	}); 
+	});
+    new DataTable('#example'); 
+</script>
+
+</body> 
+</html>
