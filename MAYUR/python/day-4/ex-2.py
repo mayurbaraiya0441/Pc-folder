@@ -12,23 +12,13 @@
 # 	count(638476) ➞ 6
 
 
-constcount = (n) =>{
-  let a = n;
-  if (n < 0) {
-    a = -(n)
-  }
-  let b = 0;
-  for (let i = 0; a > 1; i++) {
-    a = a / 10;
-    b += 1;
-    console.log("i : " + i);
-  }
-return b;
-};
-
-console.log(count(318));
-console.log(count(-92563));
-console.log(count(4666));
-console.log(count(-314890));
-console.log(count(654321));
-console.log(count(638476));
+def count_digits(n):
+    if n == 0:
+        return 0
+    count = 0
+    while n > 0:
+        n = n // 10
+        count += 1
+    return count
+count_digits(123456)
+print(count_digits(123456))
