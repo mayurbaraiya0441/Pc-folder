@@ -1,15 +1,24 @@
 
-<form action="{%url 'add' %}" method= "POST">
-    {% csrf_token %}
 
-    
-    <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">first name</span>
-        <input type="text" class="form-control" placeholder="f_name" name="f_name">
-        <br>
-        <span class="input-group-text" id="addon-wrapping">last name</span>
-        <input type="text" class="form-control" placeholder="l_name" name="l_name">  
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+        <form action="{%url 'add' %}" method= "POST">
+            {% csrf_token %}
+
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">first name</span>
+                <input type="text" class="form-control" placeholder="First Name" name="f_name">
+                <br>
+                <span class="input-group-text" id="addon-wrapping">last name</span>
+                <input type="text" class="form-control" placeholder="Last Name" name="l_name">  
+            </div>
+            <button type="submit" class="btn btn-primary">submit</button>
+        </form>
     </div>
-    <button type="submit" class="btn">submit</button>
-</form>
-  
+</div>
+{% endblock %}
