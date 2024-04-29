@@ -6,7 +6,7 @@
 {% block body %}
 <div id="content-page" class="content-page">
      <div class="container-fluid">
-        <form action="{%url 'add' %}" method= "POST">
+        <form action="{%url 'user_add' %}" method= "POST">
             {% csrf_token %}
 
             
@@ -17,7 +17,7 @@
                 <span class="input-group-text" id="addon-wrapping">last name</span>
                 <input type="text" class="form-control" placeholder="Last Name" name="l_name">  
             </div>
-            <button type="submit" class="btn btn-primary">submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>

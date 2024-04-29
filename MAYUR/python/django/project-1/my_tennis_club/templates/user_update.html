@@ -8,7 +8,7 @@
 
 
 
-      <form action="{% url 'update' emp.id %}" method= "POST">
+      <form action="{% url 'user_update' emp.id %}" method= "POST">
          {% csrf_token %}
 
       
@@ -19,7 +19,7 @@
             <span class="input-group-text" id="addon-wrapping">last name</span>
             <input type="text" class="form-control" placeholder="l_name" value="{{emp.l_name}}" name="l_name">  
          </div>
-         <button type="update" class="btn btn-primary">update</button>
+         <button type="update" class="btn btn-primary">Update</button>
          
 
 

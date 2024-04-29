@@ -4,17 +4,20 @@ from members.models import Employees
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-def index(request):
+
+####################### user function #######################
+
+def user_show(request):
     emp = Employees.objects.all()
     
     context={
         'emp':emp,
     }
     
-    return render(request,"index.html",context)
+    return render(request,"user_show.html",context)
 
 
-def add(request):
+def user_add(request):
     if request.method ==  "POST":
         firstname=request.POST.get('f_name')
         lastname=request.POST.get('l_name')
@@ -23,12 +26,12 @@ def add(request):
         emp.l_name=lastname
         emp.save()
         
-        return redirect(index)
-    return  render(request,'add.html')
+        return redirect(user_show)
+    return  render(request,'user_add.html')
 
 
 
-def update(request,id):
+def user_update(request,id):
     if request.method == "POST":
         firstname=request.POST.get('f_name')
         lastname=request.POST.get('l_name')
@@ -37,17 +40,27 @@ def update(request,id):
         emp.l_name=lastname
         emp.save()
         # return index(request)
-        return redirect(index)
+        return redirect(user_show)
     emp=Employees.objects.get(id=id)
     context ={
         'emp':emp,
     }
-    return render(request,'update.html',context)
+    return render(request,'user_update.html',context)
 
-def delete_user(request,id):
+def user_delete(request,id):
     emp=Employees.objects.get(id=id)
     emp.delete()
-    return redirect(index)
+    return redirect(user_show)
+
+
+
+###################### Login Function ####################
+
+def  login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+    return render(request,"login.html")
+    
     
  
         

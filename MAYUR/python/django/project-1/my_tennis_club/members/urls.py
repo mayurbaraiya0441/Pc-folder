@@ -1,14 +1,17 @@
 from django.urls import path
 
 
-#now import the views.py file into this code
+# now import the views.py file into this code
 from . import views
 urlpatterns=[
-path('',views.index, name='index'),
-path('add/',views.add,name='add'),
-path('update/<int:id>',views.update,name='update'),
-path('delete/<int:id>',views.delete_user,name='delete'),
-path('dashboard/',views.dashboard,name='dashboard'),
+path('',views.dashboard,name='dashboard'),
+
+# user  
+path('user_show',views.user_show, name='user_show'),
+path('user_add/',views.user_add,name='user_add'),
+path('user_update/<int:id>',views.user_update,name='user_update'),
+path('user_delete/<int:id>',views.user_delete,name='user_delete'),
+path('login',views.login,name='login'),
 
 
 
