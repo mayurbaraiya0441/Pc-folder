@@ -1,0 +1,39 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+        <form action="{%url 'category_add' %}" method= "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Category Name</span>
+                <input type="text" class="form-control" placeholder="Category Name" name="category_name">  
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Category Image</span>
+                {% comment %} <input type="file" class="form-control" placeholder="category image" name="category_image"> {% endcomment %}
+                <input type="file" name="category_image"   >
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Category Code</span>
+                <input type="text" class="form-control" placeholder="Category Code" name="category_code">
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Category Desc</span>
+                {% comment %} <input type="text" class="form-control" placeholder="Category Descripation" name="category_desc"> {% endcomment %}
+                <textarea rows="2" cols="50" name="category_desc"></textarea> 
+            </div>
+            <div>    
+                {% comment %} <span class="input-group-text" id="addon-wrapping">Category Status</span> {% endcomment %}
+                {% comment %} <input type="text" class="form-control" placeholder="Category Status" name="category_status"> {% endcomment %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

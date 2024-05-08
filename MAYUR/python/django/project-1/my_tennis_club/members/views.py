@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from members.models import Employees
+from django.contrib.auth import authenticate,login,logout
+
 
 def dashboard(request):
     return render(request, 'dashboard.html')
@@ -56,10 +58,35 @@ def user_delete(request,id):
 
 ###################### Login Function ####################
 
-def  login(request):
+def user_login(request):
     if request.method=='POST':
-        username=request.POST.get('username')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username,password=password)
+        if user is not None:
+            login(request,user)
+            # messages.success(request, f' welcome {username} !!') 
+            return redirect(dashboard)
+
+     
+    return render(request, 'login.html')
+
+
+
+def signin(request):
+    if request.method=="POST":
+       username = request.POST['username']
+       pasword =  request.POST['password']
+    
+       
     return render(request,"login.html")
+
+def user_logout(request):
+    logout(request)
+    return redirect(user_login)
+ 
+
+
     
     
  

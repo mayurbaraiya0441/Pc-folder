@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+
+
+
+      <form action="{% url 'category_update' category_obj.id  %}" method= "POST" enctype="multipart/form-data">
+         {% csrf_token %}
+
+      
+         <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Category Name</span>
+            <input type="text" class="form-control" placeholder="Category Name" value="{{category_obj.category_name}}"  name="category_name">
+         </div>
+         <div> 
+            <span class="input-group-text" id="addon-wrapping">Category Image</span>
+            {% comment %} <input type="file" class="form-control" placeholder="Category Image" value="{{category.category_image}}" name="category_image"> {% endcomment %}
+            <input type="file" name="category_image">
+         </div>
+         <div>   
+            <span class="input-group-text" id="addon-wrapping">Category_Code</span>
+            <input type="text" class="form-control" placeholder="Category Code" value="{{category_obj.category_code}}" name="category_code">  
+         </div>
+         <div>  
+            <span class="input-group-text" id="addon-wrapping">Category Descripations</span>
+            {% comment %} <input type="text" class="form-control" placeholder="Category Descripation" value="{{category_obj.category_desc}}" name="category_desc">   {% endcomment %}
+            <textarea class="form-control" rows="2" cols="50" name="category_desc"> {{category_obj.category_code}} </textarea> 
+      
+         </div>
+         <div>
+            {% comment %} <span class="input-group-text" id="addon-wrapping">Category Status</span>
+            <input type="text" class="form-control" placeholder="Category Status" value="{{category_obj.category_status}}" name="category_status">        {% endcomment %}
+         </div>
+         <button type="update" class="btn btn-primary">Update Category</button>
+         
+
+
+         
+      </form>
+   </div>
+</div>
+{% endblock %}
