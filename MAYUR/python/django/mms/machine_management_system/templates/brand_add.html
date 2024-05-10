@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+        <form action="{%url 'brand_add' %}" method= "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Brand Name</span>
+                <input type="text" class="form-control" placeholder="Brand Name" name="brand_name">  
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Brand Image</span>
+                {% comment %} <input type="file" class="form-control" placeholder="category image" name="category_image"> {% endcomment %}
+                <input type="file" name="brand_image"   >
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Brand Code</span>
+                <input type="text" class="form-control" placeholder="Brand Code" name="brand_code">
+            </div>
+            <div>
+                {% comment %} <span class="input-group-text" id="addon-wrapping">Category Desc</span> {% endcomment %}
+                {% comment %} <input type="text" class="form-control" placeholder="Category Descripation" name="category_desc"> {% endcomment %}
+                {% comment %} <textarea rows="2" cols="50" name="category_desc"></textarea>  {% endcomment %}
+            </div>
+             {% comment %} <div>    
+                 <span class="input-group-text" id="addon-wrapping">Brand Status</span> 
+                 <input type="text" class="form-control" placeholder="Brand Status" name="brand_status"> 
+            </div>  {% endcomment %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

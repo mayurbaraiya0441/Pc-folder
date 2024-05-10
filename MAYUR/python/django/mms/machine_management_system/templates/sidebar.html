@@ -35,26 +35,26 @@
                    <li><a href="{% url 'category_show' %}"><i class="ri-text-spacing"></i>show category</a></li>
                    {% comment %} <li><a href="two-sidebar.html"><i class="ri-indent-decrease"></i>Two Sidebar</a></li>
                    <li><a href="vertical-top-menu.html"><i class="ri-line-height"></i>Vertical block menu</a></li> {% endcomment %}
-                </ul>
-             </li>
-             <li>
-                <a href="calendar.html" class="iq-waves-effect"><i class="las la-calendar iq-arrow-left"></i><span>Calendar</span></a>
-             </li>
-             <li>
-                <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
-                   <li><a href="profile.html"><i class="las la-id-card-alt"></i>User Profile</a></li>
-                   <li><a href="profile-edit.html"><i class="las la-edit"></i>User Edit</a></li>
-                   <li><a href="add-user.html"><i class="las la-plus-circle"></i>User Add</a></li>
-                   <li><a href="user-list.html"><i class="las la-th-list"></i>User List</a></li>
-                </ul>
-             </li>
-             <li>
-                <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="las la-mail-bulk iq-arrow-left"></i><span>Email</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="app/index.html"><i class="las la-inbox"></i>Inbox</a></li>
-                   <li><a href="app/email-compose.html"><i class="ri-mail-send-line"></i>Email Compose</a></li>
-                </ul>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="las la-mail-bulk iq-arrow-left"></i><span>Brand</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                  <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                  <li><a href="{% url 'brand_add' %}"><i class="las la-inbox"></i>Add Brand</a></li>
+                  <li><a href="{% url 'brand_show' %}"><i class="ri-mail-send-line"></i>Show Brand</a></li>
+                  </ul>
+               </li>
+               <li>
+                  {% comment %} <a href="calendar.html" class="iq-waves-effect"><i class="las la-calendar iq-arrow-left"></i><span>Calendar</span></a> {% endcomment %}
+               </li>
+               <li>
+                  <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Tax</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                  <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                     <li><a href="{% url 'tax_add' %}"><i class="las la-id-card-alt"></i>Tax_Add</a></li>
+                     <li><a href="{% url 'tax_show' %}"><i class="las la-edit"></i>Tax_Show</a></li>
+                     {% comment %} <li><a href="add-user.html"><i class="las la-plus-circle"></i>User Add</a></li> {% endcomment %}
+                     {% comment %} <li><a href="user-list.html"><i class="las la-th-list"></i>User List</a></li> {% endcomment %}
+                  </ul>
              </li>
              <li>
                 <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>UI Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>

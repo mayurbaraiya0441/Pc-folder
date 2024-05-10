@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+        <form action="{%url 'tax_add' %}" method= "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Tax Name</span>
+                <input type="text" class="form-control" placeholder="tax Name" name="tax_name">  
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Tax Per</span>
+                <input type="text" class="form-control" placeholder="tax per" name="tax_per">
+                
+            </div>
+            <div>
+                {% comment %} <span class="input-group-text" id="addon-wrapping">Brand Code</span>
+                <input type="text" class="form-control" placeholder="Brand Code" name="brand_code"> {% endcomment %}
+            </div>
+            <div>
+                {% comment %} <span class="input-group-text" id="addon-wrapping">Category Desc</span> {% endcomment %}
+                {% comment %} <input type="text" class="form-control" placeholder="Category Descripation" name="category_desc"> {% endcomment %}
+                {% comment %} <textarea rows="2" cols="50" name="category_desc"></textarea>  {% endcomment %}
+            </div>
+             <div>    
+                 {% comment %} <span class="input-group-text" id="addon-wrapping">Tax status</span>  {% endcomment %}
+                 {% comment %} <input type="text" class="form-control" placeholder="tax status" name="tax status">  {% endcomment %}
+             </div>  
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

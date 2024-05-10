@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+    
+  <div class="container-fluid">
+    
+
+    <a class="btn btn-info" href="{% url 'tax_add' %}">Add tax</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="tax">Tax Name</th>
+          {% comment %} <th scope="brand">Brand Image</th> {% endcomment %}
+          <th scope="tax">Tax Per</th>
+          <th scope="tax">Tax Status</th>
+          <th scope="tax">Action</th>
+
+          
+
+
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in tax %}
+        <tr>
+        
+          <td>{{i.tax_name}}</td>
+          <td>{{i.tax_per}}</td>
+          
+          {% comment %} <td><img class="rounded img-fluid avatar-40" src="{{i.tax_image.url}}" alt="profile"></td> {% endcomment %}
+          {% comment %} <td>{{i.brand_code}}</td> {% endcomment %}
+          {% comment %} <td>{{i.brand_sta}}</td> {% endcomment %}
+          <td>
+            {% if i.tax_status == "True" %}
+                
+                <label class="switch" onchange="myfun({{i.id}}, true)">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+            {% else %}
+                  
+                <label class="switch" onchange="myfun({{i.id}}, true)">
+                  <input type="checkbox" >
+                  <span class="slider round"></span>
+                </label>
+            {% endif %}
+            </td>
+          {% comment %} <td><a class="btn btn-success" href="{% url 'category_add' i.id %}"></a> {% endcomment %}
+          <td><a class="btn btn-primary" href="{% url 'tax_update' i.id %}"><i class="ri-pencil-line"></i></a>
+
+          
+          <a class="btn btn-danger"href="{% url 'tax_delete' i.id %}" onclick="return confirm('Are you sure you want to delete this?')"><i class="ri-delete-bin-line"></a></td>
+        </tr>
+        
+        {% endfor %}
+        </tbody>
+        </table>
+        
+      </div>
+    </div>
+
+
+
+
+
+<script>
+
+  function myfun(id, tax){
+    console.log('1111111')
+
+    window.location.href=`{{baseurl}}/machineapp/tax_status/${id}`;
+}
+</script>
+
+{% endblock %}

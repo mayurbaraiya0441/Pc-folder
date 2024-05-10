@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+
+
+
+      <form action="{% url 'brand_update' brand_obj.id  %}" method= "POST" enctype="multipart/form-data">
+         {% csrf_token %}
+
+      
+         <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Brand Name</span>
+            <input type="text" class="form-control" placeholder="Brand Name" value="{{brand_obj.brand_name}}"  name="brand_name">
+         </div>
+         <div> 
+            <span class="input-group-text" id="addon-wrapping">Brand Image</span>
+            {% comment %} <input type="file" class="form-control" placeholder="Category Image" value="{{category.category_image}}" name="brand_image"> {% endcomment %}
+            <input type="file" name="brand_image">
+         </div>
+         <div>   
+            <span class="input-group-text" id="addon-wrapping">Brand_Code</span>
+            <input type="text" class="form-control" placeholder="Brand Code" value="{{brand_obj.brand_code}}" name="brand_code">  
+         </div>
+         {% comment %} <div>  
+            <span class="input-group-text" id="addon-wrapping">Category Descripations</span> 
+            <input type="text" class="form-control" placeholder="Category Descripation" value="{{category_obj.category_desc}}" name="category_desc">   
+            <textarea class="form-control" rows="2" cols="50" name="category_desc"> {{category_obj.category_code}} </textarea> 
+       
+         </div> {% endcomment %}
+         {% comment %} <div>
+             <span class="input-group-text" id="addon-wrapping">Brand Status</span> 
+            <input type="text" class="form-control" placeholder="Brand Status" value="{{brand_obj.brand_status}}" name="brand_status">       
+         </div> {% endcomment %}
+         <button type="update" class="btn btn-primary">Update Brand</button>
+         
+
+
+         
+      </form>
+   </div>
+</div>
+{% endblock %}
