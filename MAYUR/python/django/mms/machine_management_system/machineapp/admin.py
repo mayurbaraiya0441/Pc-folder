@@ -11,3 +11,8 @@ admin.site.register(brand)
 
 
 admin.site.register(tax)
+
+
+
+admin.site.register(subcategory)
+

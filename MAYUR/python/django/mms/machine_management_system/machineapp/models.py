@@ -37,3 +37,18 @@ class tax(models.Model):
     tax_status=models.CharField(max_length=200)
     def __str__(self):
         return self.tax_name
+    
+    
+    
+    
+class subcategory(models.Model):
+    subcategory_id=models.IntegerField()
+    subcategory_Name=models.CharField(max_length=200)
+    subcategory_img=models.ImageField(upload_to='img')
+    subcategory_code=models.IntegerField()
+    subcategory_status=models.CharField(max_length=200)
+    def __str__(self):
+        return self.subcategory_id
+    
+    
+    
