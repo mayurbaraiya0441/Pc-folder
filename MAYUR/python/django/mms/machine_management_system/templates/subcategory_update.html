@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+
+
+
+      <form action="{% url 'subcategory_update' subcategory_obj.id  %}" method= "POST" enctype="multipart/form-data">
+         {% csrf_token %}
+
+
+
+
+
+
+         <div class="input-group flex-nowrap">
+            <select class="form-control form-control-sm mb-3" name="category_id">
+               {% for i in categoryobj %}
+                  {% if i.id == subcategory_obj.category_id.id %}
+                        
+                     <option value="{{i.id}}" selected>{{i.category_name}}</option>
+                  {% else %}
+                  
+                     <option value="{{i.id}}">{{i.category_name}}</option>
+                  {% endif %}
+               {% endfor %}
+            </select>
+         </div>
+                  
+
+              
+
+      
+         <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Sub Category Name</span>
+            <input type="text" class="form-control" placeholder="Sub Category Name" value="{{subcategory_obj.subcategory_Name}}"  name="subcategory_name">
+         </div>
+         <div> 
+            <span class="input-group-text" id="addon-wrapping">Sub Category Image</span>
+            {% comment %} <input type="file" class="form-control" placeholder="sub Category Image" value="{{subcategory.subcategory_image}}" name="subcategory_image"> {% endcomment %}
+            <input type="file" name="subcategory_image">
+         </div>
+         <div>   
+            <span class="input-group-text" id="addon-wrapping">Sub Category code</span>
+            <input type="text" class="form-control" placeholder="sub category code" value="{{subcategory_obj.subcategory_code}}" name="subcategory_code">  
+         </div>
+         {% comment %} <div>  
+            <span class="input-group-text" id="addon-wrapping">Category Descripations</span> 
+            <input type="text" class="form-control" placeholder="Category Descripation" value="{{category_obj.category_desc}}" name="category_desc">   
+            <textarea class="form-control" rows="2" cols="50" name="category_desc"> {{category_obj.category_code}} </textarea> 
+       
+         </div> {% endcomment %}
+         <div>
+             {% comment %} <span class="input-group-text" id="addon-wrapping">Tax Status</span>  {% endcomment %}
+            {% comment %} <input type="text" class="form-control" placeholder="tax Status" value="{{tax_obj.tax_status}}" name="tax_status">        {% endcomment %}
+         </div> 
+         <button type="update" class="btn btn-primary">Update tax</button>
+         
+
+
+         
+      </form>
+   </div>
+</div>
+{% endblock %}

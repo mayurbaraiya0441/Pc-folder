@@ -1,0 +1,49 @@
+
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+        <form action="{%url 'subcategory_add' %}" method= "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+
+
+            <div class="input-group flex-nowrap"> 
+                <select class="form-control form-control-sm mb-3" name="category_id">
+                    {% for i in category %}
+                        <option value="{{i.id}}">{{i.category_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Sub Category Name</span>
+                <input type="text" class="form-control" placeholder="sub category Name" name="subcategory_name">  
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Sub Category Image</span>
+                {% comment %} <input type="file" class="form-control" placeholder="category image" name="category_image"> {% endcomment %}
+                <input type="file" name="subcategory_image"   >
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Sub Category Code</span>
+                <input type="text" class="form-control" placeholder="sub category Code" name="subcategory_code">
+            </div>
+            <div>
+                {% comment %} <span class="input-group-text" id="addon-wrapping">Category Desc</span> {% endcomment %}
+                {% comment %} <input type="text" class="form-control" placeholder="Category Descripation" name="category_desc"> {% endcomment %}
+                {% comment %} <textarea rows="2" cols="50" name="category_desc"></textarea>  {% endcomment %}
+            </div>
+             {% comment %} <div>    
+                 <span class="input-group-text" id="addon-wrapping">Brand Status</span> 
+                 <input type="text" class="form-control" placeholder="Brand Status" name="brand_status"> 
+            </div>  {% endcomment %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

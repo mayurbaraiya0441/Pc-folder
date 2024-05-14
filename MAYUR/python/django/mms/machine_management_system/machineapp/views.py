@@ -318,6 +318,124 @@ def tax_status(request, id):
 
 
 
+##################### Sub Category Function ####################
+
+
+def subcategory_show(request):
+    subcategoryobj = subcategory.objects.all()
+    print(subcategoryobj)
+    
+    context={
+        'subcategory':subcategoryobj,
+        'baseurl':baseurl,
+    }
+    print(subcategoryobj)
+    return render(request,"subcategory_show.html",context)
+
+def subcategory_add(request):
+    if request.method ==  "POST":
+        category_id=request.POST.get('category_id')
+        category_obj=category.objects.get(id=category_id)
+        subcategory_name=request.POST.get('subcategory_name')
+        print(subcategory_name,"kjdkjsjdb")     
+        subcategory_code=request.POST.get('subcategory_code')
+        subcategory_image=request.FILES['subcategory_image']
+        # subcategory_status=request.POST.get('subcategory_status')
+        # category_desc=request.POST.get('category_desc')
+        # brand_status=request.POST.get('brand_status')
+        # print(request.FILES['brand_image'],"kjdkjsjdb")
+        
+        
+       
+        
+        subcategory_obj=subcategory()
+        subcategory_obj.subcategory_Name=subcategory_name
+        subcategory_obj.subcategory_img=subcategory_image
+        subcategory_obj.subcategory_code=subcategory_code
+        subcategory_obj.category_id=category_obj
+
+        
+
+        # tax_obj.tax_status=tax_status
+        # category_obj.category_desc=category_desc
+        # tax_obj.tax_status=tax_status
+        subcategory_obj.save()
+        
+        return redirect(subcategory_show)
+    categoryobj =category.objects.all()
+    context={
+        'category':categoryobj,
+        'baseurl':baseurl,
+    }
+    return render(request,'subcategory_add.html',context)
+
+
+
+def subcategory_update(request,id):
+    if request.method == "POST":
+        subcategory_name=request.POST.get('subcategory_name')
+        try:
+            subcategory_image=request.FILES['subcategory_image']
+        except:
+            pass
+        subcategory_code=request.POST.get('subcategory_code')
+        # brand_desc=request.POST.get('brand_desc')
+        # tax_status=request.POST.get('tax_status')
+        # print(category_image)
+        category_id=request.POST.get('category_id')
+        category_obj=category.objects.get(id=category_id)
+        
+        
+        
+        subcategory_obj=subcategory.objects.get(id=id)
+        subcategory_obj.subcategory_Name=subcategory_name
+        try:    
+            subcategory_obj.subcategory_img=subcategory_image
+        except:
+            pass
+        subcategory_obj.subcategory_code=subcategory_code
+        # brand_obj.brand_desc=brand_desc
+        # brand_obj.brand_status=brand_status
+        subcategory_obj.category_id=category_obj
+
+        subcategory_obj.save()
+        
+        return redirect(subcategory_show)
+    subcategory_obj=subcategory.objects.get(id=id)
+    print(subcategory_obj,'12345')
+    categoryobj =category.objects.all()
+
+    context ={
+        'subcategory_obj':subcategory_obj,
+        'categoryobj':categoryobj,
+        
+    }
+    return render(request,'subcategory_update.html',context)
+
+
+
+
+
+def subcategory_delete(request,id):
+    subcategory_obj=subcategory.objects.get(id=id)
+    subcategory_obj.delete()
+    return redirect(subcategory_show)
+
+
+def subcategory_status(request, id):
+    
+    get_data =subcategory.objects.get(id=id)
+    
+    if get_data.subcategory_status == "True":
+        get_data.subcategory_status="False"
+    else:
+        get_data.subcategory_status="True"
+
+    get_data.save()
+    return redirect(subcategory_show)
+
+
+
 
 
 

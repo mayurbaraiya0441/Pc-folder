@@ -57,7 +57,22 @@ path('tax_delete/<int:id>',views.tax_delete,name='tax_delete'),
 path('tax_status/<int:id>',views.tax_status,name='tax_status'),
 
 
+# ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+# user  
+path('subcategory_show',views.subcategory_show, name='subcategory_show'),
+path('subcategory_add/',views.subcategory_add,name='subcategory_add'),
+path('subcategory_update/<int:id>',views.subcategory_update,name='subcategory_update'),
+path('subcategory_delete/<int:id>',views.subcategory_delete,name='subcategory_delete'),
+path('subcategory_status/<int:id>',views.subcategory_status,name='subcategory_status'),
+
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
 
 
