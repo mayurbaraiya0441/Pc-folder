@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+
+
+
+      <form action="{% url 'city_update' city_obj.id  %}" method= "POST" enctype="multipart/form-data">
+         {% csrf_token %}
+
+
+
+
+
+
+         <div class="input-group flex-nowrap">
+            <select class="form-control form-control-sm mb-3" name="state_id">
+               {% for i in stateobj %}
+                  {% if i.id == city_obj.state_id.id %}
+                        
+                     <option value="{{i.id}}" selected>{{i.state_name}}</option>
+                  {% else %}
+                  
+                     <option value="{{i.id}}">{{i.state_name}}</option>
+                  {% endif %}
+               {% endfor %}
+            </select>
+         </div>
+                  
+
+              
+
+      
+         <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">City Name</span>
+            <input type="text" class="form-control" placeholder="City Name" value="{{city_obj.city_Name}}"  name="city_name">
+         </div>
+         <button type="update" class="btn btn-primary">Update</button>
+         
+
+
+         
+      </form>
+   </div>
+</div>
+{% endblock %}

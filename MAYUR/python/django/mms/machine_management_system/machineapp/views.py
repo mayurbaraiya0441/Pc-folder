@@ -437,9 +437,342 @@ def subcategory_status(request, id):
 
 
 
+##################### country Function ####################
 
 
- 
+def country_show(request):
+    country_obj = country.objects.all()
+    
+    
+    context={
+        'country':country_obj,
+        'baseurl':baseurl,
+    }
+    return render(request,"country_show.html",context)
+
+def country_add(request):
+    if request.method ==  "POST":
+        country_name=request.POST.get('country_name')
+        
+       
+        
+        country_obj=country()
+        country_obj.country_name=country_name
+        country_obj.save()
+        
+        return redirect(country_show)
+    return render(request,'country_add.html')
+
+
+
+def country_update(request,id):
+    if request.method == "POST":
+        country_name=request.POST.get('country_name')
+          
+          
+          
+           
+        country_obj=country.objects.get(id=id)
+        country_obj.country_name=country_name
+        country_obj.save()
+        
+        return redirect(country_show)
+    country_obj=country.objects.get(id=id)
+    context ={
+        'country_obj':country_obj,
+    }
+    return render(request,'country_update.html',context)
+
+
+def country_delete(request,id):
+    country_obj=country.objects.get(id=id)
+    country_obj.delete()
+    return redirect(country_show)
+
+
+def country_status(request, id):
+    
+    get_data = country.objects.get(id=id)
+    
+    if get_data.country_status == "True":
+        get_data.country_status="False"
+    else:
+        get_data.country_status="True"
+
+    get_data.save()
+    return redirect(country_show)
+
+
+
+
+##################### state Function ####################
+
+
+
+def state_show(request):
+    stateobj = state.objects.all()
+
+    
+    context={
+        'state':stateobj,
+        'baseurl':baseurl,
+    }
+    print(stateobj)
+    return render(request,"state_show.html",context)
+
+def state_add(request):
+    if request.method ==  "POST":
+        country_id=request.POST.get('country_id')
+        country_obj=country.objects.get(id=country_id)
+        state_name=request.POST.get('state_name')    
+        
+        
+       
+        
+        state_obj=state()
+        state_obj.state_name=state_name
+        state_obj.country_id=country_obj
+        state_obj.save()
+        
+        return redirect(state_show)
+    countryobj = country.objects.all()
+    context={
+        'country':countryobj,
+        'baseurl':baseurl,
+    }
+    return render(request,'state_add.html',context)
+
+
+
+def state_update(request,id):
+    if request.method == "POST":
+        state_name=request.POST.get('state_name')
+        country_id=request.POST.get('country_id')
+        country_obj=country.objects.get(id=country_id)
+        
+        
+        
+        state_obj=state.objects.get(id=id)
+        state_obj.state_Name=state_name
+        state_obj.country_id=country_obj
+
+        state_obj.save()
+        
+        return redirect(state_show)
+    state_obj=state.objects.get(id=id)
+    # print(subcategory_obj,'12345')
+    countryobj =country.objects.all()
+
+    context ={
+        'state_obj':state_obj,
+        'countryobj':countryobj,
+        
+    }
+    return render(request,'state_update.html',context)
+
+
+
+
+
+def state_delete(request,id):
+    state_obj=state.objects.get(id=id)
+    state_obj.delete()
+    return redirect(state_show)
+
+
+def state_status(request, id):
+    
+    get_data =state.objects.get(id=id)
+    
+    if get_data.state_status == "True":
+        get_data.state_status="False"
+    else:
+        get_data.state_status="True"
+
+    get_data.save()
+    return redirect(state_show)
+
+
+
+
+
+##################### city Function ####################
+
+
+def city_show(request):
+    cityobj = city.objects.all()
+
+    
+    context={
+        'city':cityobj,
+        'baseurl':baseurl,
+    }
+    print(cityobj)
+    return render(request,"city_show.html",context)
+
+def city_add(request):
+    if request.method ==  "POST":
+        state_id=request.POST.get('state_id')
+        state_obj=state.objects.get(id=state_id)
+        city_name=request.POST.get('city_name')    
+        
+        
+       
+        
+        city_obj=city()
+        city_obj.city_name=city_name
+        city_obj.state_id=state_obj
+        city_obj.save()
+        
+        return redirect(city_show)
+    stateobj = state.objects.all()
+    context={
+        'state':stateobj,
+        'baseurl':baseurl,
+    }
+    return render(request,'city_add.html',context)
+
+
+
+def city_update(request,id):
+    if request.method == "POST":
+        city_name=request.POST.get('city_name')
+        state_id=request.POST.get('state_id')
+        state_obj=state.objects.get(id=state_id)
+        
+
+        city_obj=city.objects.get(id=id)
+        city_obj.city_name=city_name
+        city_obj.state_id=state_obj
+        city_obj.save()
+        
+        return redirect(city_show)
+    city_obj=city.objects.get(id=id)
+    stateobj=state.objects.all()
+
+    context ={
+        'city_obj':city_obj,
+        'stateobj':stateobj,
+        
+    }
+    return render(request,'city_update.html',context)
+
+
+
+
+
+def city_delete(request,id):
+    city_obj=city.objects.get(id=id)
+    city_obj.delete()
+    return redirect(city_show)
+
+
+def city_status(request, id):
+    
+    get_data =city.objects.get(id=id)
+    
+    if get_data.city_status == "True":
+        get_data.city_status="False"
+    else:
+        get_data.city_status="True"
+
+    get_data.save()
+    return redirect(city_show)
+
+
+
+##################### customer Function ####################
+
+
+
+ def customer_show(request):
+    customerobj = customer.objects.all()
+
+    
+    context={
+        'customer':customerobj,
+        'baseurl':baseurl,
+    }
+    print(customerobj)
+    return render(request,"customer_show.html",context)
+
+def customer_add(request):
+    if request.method ==  "POST":
+        customer_name=request.POST.get('customer_name')
+        customer_number=request.POST.get('customer_number')
+        customer_email=request.POST.get('customer_email')
+        customer_image=request.FILES['subcategory_image']
+
+        customer_id=request.POST.get('customer_id')
+        customer_id=request.POST.get('customer_id')
+        customer_obj=customer.objects.get(id=customer_id)
+        customer_name=request.POST.get('customer_name')
+        
+        
+        
+        
+        
+       
+        
+        customer_obj=customer()
+        customer_obj.customer_name=customer_name
+        customer_obj.customer_id=customer_obj
+        customer_obj.save()
+        
+        return redirect(city_show)
+    stateobj = state.objects.all()
+    context={
+        'state':stateobj,
+        'baseurl':baseurl,
+    }
+    return render(request,'city_add.html',context)
+
+
+
+def city_update(request,id):
+    if request.method == "POST":
+        city_name=request.POST.get('city_name')
+        state_id=request.POST.get('state_id')
+        state_obj=state.objects.get(id=state_id)
+        
+
+        city_obj=city.objects.get(id=id)
+        city_obj.city_name=city_name
+        city_obj.state_id=state_obj
+        city_obj.save()
+        
+        return redirect(city_show)
+    city_obj=city.objects.get(id=id)
+    stateobj=state.objects.all()
+
+    context ={
+        'city_obj':city_obj,
+        'stateobj':stateobj,
+        
+    }
+    return render(request,'city_update.html',context)
+
+
+
+
+
+def city_delete(request,id):
+    city_obj=city.objects.get(id=id)
+    city_obj.delete()
+    return redirect(city_show)
+
+
+def city_status(request, id):
+    
+    get_data =city.objects.get(id=id)
+    
+    if get_data.city_status == "True":
+        get_data.city_status="False"
+    else:
+        get_data.city_status="True"
+
+    get_data.save()
+    return redirect(city_show)
 
 
     

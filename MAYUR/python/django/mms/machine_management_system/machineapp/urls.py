@@ -70,7 +70,49 @@ path('subcategory_delete/<int:id>',views.subcategory_delete,name='subcategory_de
 path('subcategory_status/<int:id>',views.subcategory_status,name='subcategory_status'),
 
 
+
+
+
+
+path('country_show',views.country_show, name='country_show'),
+path('country_add/',views.country_add,name='country_add'),
+path('country_update/<int:id>',views.country_update,name='country_update'),
+path('country_delete/<int:id>',views.country_delete,name='country_delete'),
+path('country_status/<int:id>',views.country_status,name='country_status'),
+
+
+
+
+path('state_show',views.state_show, name='state_show'),
+path('state_add/',views.state_add,name='state_add'),
+path('state_update/<int:id>',views.state_update,name='state_update'),
+path('state_delete/<int:id>',views.state_delete,name='state_delete'),
+path('state_status/<int:id>',views.state_status,name='state_status'),
+
+
+
+
+path('city_show',views.city_show, name='city_show'),
+path('city_add/',views.city_add,name='city_add'),
+path('city_update/<int:id>',views.city_update,name='city_update'),
+path('city_delete/<int:id>',views.city_delete,name='city_delete'),
+path('city_status/<int:id>',views.city_status,name='city_status'),
+
+
+
+
+path('customer_show',views.customer_show, name='customer_show'),
+path('customer_add/',views.customer_add,name='customer_add'),
+path('customer_update/<int:id>',views.customer_update,name='customer_update'),
+path('customer_delete/<int:id>',views.customer_delete,name='customer_delete'),
+path('customer_status/<int:id>',views.customer_status,name='customer_status'),
+
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
 
 
 

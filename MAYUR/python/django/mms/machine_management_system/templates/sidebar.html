@@ -38,8 +38,8 @@
                   </ul>
                </li>
                <li>
-                  <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="las la-mail-bulk iq-arrow-left"></i><span>Brand</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                  <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                  <a href="#Brand" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="las la-mail-bulk iq-arrow-left"></i><span>Brand</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                  <ul id="Brand" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                   <li><a href="{% url 'brand_add' %}"><i class="las la-inbox"></i>Add Brand</a></li>
                   <li><a href="{% url 'brand_show' %}"><i class="ri-mail-send-line"></i>Show Brand</a></li>
                   </ul>
@@ -48,8 +48,8 @@
                   {% comment %} <a href="calendar.html" class="iq-waves-effect"><i class="las la-calendar iq-arrow-left"></i><span>Calendar</span></a> {% endcomment %}
                </li>
                <li>
-                  <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Tax</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                  <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                  <a href="#Tax" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Tax</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                  <ul id="Tax" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                      <li><a href="{% url 'tax_add' %}"><i class="las la-id-card-alt"></i>Tax_Add</a></li>
                      <li><a href="{% url 'tax_show' %}"><i class="las la-edit"></i>Tax_Show</a></li>
                      {% comment %} <li><a href="add-user.html"><i class="las la-plus-circle"></i>User Add</a></li> {% endcomment %}
@@ -57,8 +57,8 @@
                   </ul>
              </li>
              <li>
-               <a href="#forms" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-wpforms iq-arrow-left"></i><span>subcategory</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-               <ul id="forms" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+               <a href="#subcategory" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-wpforms iq-arrow-left"></i><span>subcategory</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+               <ul id="subcategory" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                   <li><a href="{% url 'subcategory_add' %}"><i class="las la-book"></i>Sub Category Add</a></li>
                   <li><a href="{% url 'subcategory_show' %}"><i class="las la-edit"></i>Sub Category Show</a></li>
                   {% comment %} <li><a href="form-switch.html"><i class="las la-toggle-off"></i>Form Switch</a></li> {% endcomment %}
@@ -67,46 +67,28 @@
                </ul>
             </li>
              <li>
-                <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>UI Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="ui-elements" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="ui-colors.html"><i class="las la-palette"></i>colors</a></li>
-                   <li><a href="ui-typography.html"><i class="las la-keyboard"></i>Typography</a></li>
-                   <li><a href="ui-alerts.html"><i class="las la-tag"></i>Alerts</a></li>
-                   <li><a href="ui-badges.html"><i class="lab la-atlassian"></i>Badges</a></li>
-                   <li><a href="ui-breadcrumb.html"><i class="las la-bars"></i>Breadcrumb</a></li>
-                   <li><a href="ui-buttons.html"><i class="las la-tablet"></i>Buttons</a></li>
-                   <li><a href="ui-cards.html"><i class="las la-credit-card"></i>Cards</a></li>
-                   <li><a href="ui-carousel.html"><i class="las la-film"></i>Carousel</a></li>
-                   <li><a href="ui-embed-video.html"><i class="las la-video"></i>Video</a></li>
-                   <li><a href="ui-grid.html"><i class="las la-border-all"></i>Grid</a></li>
-                   <li><a href="ui-images.html"><i class="las la-images"></i>Images</a></li>
-                   <li><a href="ui-list-group.html"><i class="las la-list"></i>list Group</a></li>
-                   <li><a href="ui-media-object.html"><i class="las la-ad"></i>Media</a></li>
-                   <li><a href="ui-modal.html"><i class="las la-columns"></i>Modal</a></li>
-                   <li><a href="ui-notifications.html"><i class="las la-bell"></i>Notifications</a></li>
-                   <li><a href="ui-pagination.html"><i class="las la-ellipsis-h"></i>Pagination</a></li>
-                   <li><a href="ui-popovers.html"><i class="las la-eraser"></i>Popovers</a></li>
-                   <li><a href="ui-progressbars.html"><i class="las la-hdd"></i>Progressbars</a></li>
-                   <li><a href="ui-tabs.html"><i class="las la-database"></i>Tabs</a></li>
-                   <li><a href="ui-tooltips.html"><i class="las la-magnet"></i>Tooltips</a></li>
+                <a href="#country" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-elementor iq-arrow-left"></i><span>country</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="country" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   <li><a href="{% url 'country_add' %}"><i class="las la-palette"></i>Country Add</a></li>
+                   <li><a href="{% url 'country_show' %}"><i class="las la-keyboard"></i>Country Show</a></li>
+               </ul>
+             </li>
+             <li>
+                <a href="#state" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-wpforms iq-arrow-left"></i><span>State</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="state" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   <li><a href="{% url 'state_add' %}"><i class="las la-book"></i>State Add</a></li>
+                   <li><a href="{% url 'state_show' %}"><i class="las la-edit"></i>State Show</a></li>
+                   {% comment %} <li><a href="form-switch.html"><i class="las la-toggle-off"></i>Form Switch</a></li> {% endcomment %}
+                   {% comment %} <li><a href="form-chechbox.html"><i class="las la-check-square"></i>Form Checkbox</a></li> {% endcomment %}
+                   {% comment %} <li><a href="form-radio.html"><i class="ri-radio-button-line"></i>Form Radio</a></li> {% endcomment %}
                 </ul>
              </li>
              <li>
-                <a href="#forms" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="lab la-wpforms iq-arrow-left"></i><span>Forms</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="forms" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="form-layout.html"><i class="las la-book"></i>Form Elements</a></li>
-                   <li><a href="form-validation.html"><i class="las la-edit"></i>Form Validation</a></li>
-                   <li><a href="form-switch.html"><i class="las la-toggle-off"></i>Form Switch</a></li>
-                   <li><a href="form-chechbox.html"><i class="las la-check-square"></i>Form Checkbox</a></li>
-                   <li><a href="form-radio.html"><i class="ri-radio-button-line"></i>Form Radio</a></li>
-                </ul>
-             </li>
-             <li>
-                <a href="#wizard-form" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-archive-drawer-line iq-arrow-left"></i><span>Forms Wizard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="wizard-form" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="form-wizard.html"><i class="ri-clockwise-line"></i>Simple Wizard</a></li>
-                   <li><a href="form-wizard-validate.html"><i class="ri-clockwise-2-line"></i>Validate Wizard</a></li>
-                   <li><a href="form-wizard-vertical.html"><i class="ri-anticlockwise-line"></i>Vertical Wizard</a></li>
+                <a href="#city" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-archive-drawer-line iq-arrow-left"></i><span>City</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="city" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   <li><a href="{% url 'city_add' %}"><i class="ri-clockwise-line"></i>City Add</a></li>
+                   <li><a href="{% url 'city_show' %}"><i class="ri-clockwise-2-line"></i>City Show</a></li>
+                   {% comment %} <li><a href="form-wizard-vertical.html"><i class="ri-anticlockwise-line"></i>Vertical Wizard</a></li> {% endcomment %}
                 </ul>
              </li>
              <li>

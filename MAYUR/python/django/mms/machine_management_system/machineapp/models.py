@@ -51,4 +51,60 @@ class subcategory(models.Model):
         return self.subcategory_Name
     
     
+
+
+class country(models.Model):
+    country_name=models.CharField(max_length=200)
+    country_status=models.CharField(max_length=200, default='True')
+    def __str__(self):
+       return self.country_name
+   
+   
+
+   
+
+class state(models.Model):
+    country_id=models.ForeignKey(country, on_delete=models.CASCADE)   
+    state_name=models.CharField(max_length=200)
+    state_status=models.CharField(max_length=200, default='True')
+    def __str__(self):
+       return self.state_name
+   
+   
+class city(models.Model):
+    state_id=models.ForeignKey(state, on_delete=models.CASCADE)   
+    city_name=models.CharField(max_length=200)
+    city_status=models.CharField(max_length=200, default='True')
+    def __str__(self):
+       return self.city_name
+   
+   
+   
+   
+   
+class customer(models.Model):
+    customer_name=models.CharField(max_length=200)
+    customer_number=models.IntegerField()
+    customer_email=models.CharField(max_length=200)
+    customer_image=models.ImageField(upload_to='categoryimage')
+    customer_wpnumber=models.IntegerField()
+    country_id=models.ForeignKey(country, on_delete=models.CASCADE) 
+    state_id=models.ForeignKey(state, on_delete=models.CASCADE)   
+    city_id=models.ForeignKey(city, on_delete=models.CASCADE)   
+    customer_Address=models.CharField(max_length=200)
+
+  
+
     
+    
+    def __str__(self):
+        return self.customer_name
+
+   
+   
+   
+   
+
+   
+    
+ 
