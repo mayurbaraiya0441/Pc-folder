@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{
+    background: #0a0a23;
+    display:flex;
+    align-items:center;
+    color:#fff;
+  }
+  
+  select{
+    border:none;
+    padding: 10px 20px;
+    border-radius:5px;
+  }
+  
+  select:focus{
+    outline:none;
+  }
+</style>
+</head>
+<body style="background-color:white;">
+
+  <label for="language">Select a Programming Language:</label>
+<select name="language" id="language">
+  <option value="javascript">Home and Furniture</option>
+  <option value="python">Electronics</option>
+  <option value="python">Tv and Appliance</option>
+  <option value="java" selected>Choose Category</option>
+</select>
+<label for="language">Select a Programming Language:</label>
+<select name="language" id="language">
+  <option value="javascript">Ajanta</option>
+  <option value="python">Hp</option>
+  <option value="python">Parker</option>
+  <option value="java" selected>Choose Brand</option>
+</select>
+<div class="card card-custom gutter-b bg-white border-0 table-contentpos">
+ 	
+  <div class="table-datapos">
+      <div class="table-responsive" id="printableTable">
+        <table id="orderTable" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Tax (%)</th>
+              <th>Subtotal</th>
+              <th class=" text-right no-sort"></th>
+            </tr>
+          </thead>  
+        </table>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="form-group row mb-0">
+        <div class="col-md-12 btn-submit d-flex justify-content-end">
+          <button type="button" class="btn btn-danger me-2" onclick="removeall()" title="Delete">
+            <i class="fas fa-trash-alt me-2"></i>
+            Suspand/Cancel
+          </button>
+          <!--button type="submit" class="btn btn-secondary white">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-folder-fill svg-sm me-2" viewBox="0 0 16 16">
+              <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
+              </svg>
+            Draft Order
+          </button !-->
+        </div>
+      </div>	
+  </div>
+    
+  
+</div>	
+    
+
+
+
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  
+   function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function dropbtn() {
+      document.getElementById("Dropbtn").classList.toggle("show");
+    }
+    
+  
+  // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  } 
+  var nav = document.querySelector('.my-nav');
+  nav.addEventListener('toggle', function (event) {
+  
+    // Only run if the dropdown is open
+    if (!event.target.open) return;
+  
+    // Get all other open dropdowns and close them
+    var dropdowns = nav.querySelectorAll('.dropdown[open]');
+    Array.prototype.forEach.call(dropdowns, function (dropdown) {
+      if (dropdown === event.target) return;
+      dropdown.removeAttribute('open');
+    });
+  
+  }, true);
+  
+  </script>
+  
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+

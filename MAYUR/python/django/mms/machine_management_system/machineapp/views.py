@@ -685,7 +685,7 @@ def city_status(request, id):
 
 
 
- def customer_show(request):
+def customer_show(request):
     customerobj = customer.objects.all()
 
     
@@ -701,12 +701,17 @@ def customer_add(request):
         customer_name=request.POST.get('customer_name')
         customer_number=request.POST.get('customer_number')
         customer_email=request.POST.get('customer_email')
-        customer_image=request.FILES['subcategory_image']
-
-        customer_id=request.POST.get('customer_id')
-        customer_id=request.POST.get('customer_id')
-        customer_obj=customer.objects.get(id=customer_id)
-        customer_name=request.POST.get('customer_name')
+        customer_image=request.FILES['customer_image']
+        customer_wpnumber=request.POST.get('customer_wpnumber')
+        country_id=request.POST.get('country_id')
+        state_id=request.POST.get('state_id')
+        city_id=request.POST.get('city_id')
+        customer_address=request.POST.get('customer_address')
+        
+        country_obj=country.objects.get(id=country_id)
+        state_obj=state.objects.get(id=state_id)
+        city_obj=city.objects.get(id=city_id)
+        
         
         
         
@@ -716,64 +721,93 @@ def customer_add(request):
         
         customer_obj=customer()
         customer_obj.customer_name=customer_name
-        customer_obj.customer_id=customer_obj
+        customer_obj.customer_number=customer_number
+        customer_obj.customer_email=customer_email
+        customer_obj.customer_image=customer_image
+        customer_obj.customer_wpnumber=customer_wpnumber
+        customer_obj.country_id=country_obj
+        customer_obj.state_id=state_obj
+        customer_obj.city_id=city_obj
+        customer_obj.customer_address=customer_address    
         customer_obj.save()
         
-        return redirect(city_show)
+        return redirect(customer_show)
+    countryobj = country.objects.all()
     stateobj = state.objects.all()
+    cityobj = city.objects.all()
+    
     context={
+        'country':countryobj,
         'state':stateobj,
+        'city':cityobj,
         'baseurl':baseurl,
     }
-    return render(request,'city_add.html',context)
+    return render(request,'customer_add.html',context)
 
 
 
-def city_update(request,id):
+def customer_update(request,id):
     if request.method == "POST":
-        city_name=request.POST.get('city_name')
+        customer_name=request.POST.get('customer_name')
+        try:
+            customer_image=request.FILES['customer_image']
+        except:
+            pass
+        # customer_name=request.POST.get('customer_name')
+        customer_number=request.POST.get('customer_number')
+        customer_email=request.POST.get('customer_email')
+        customer_image=request.FILES['customer_image']
+        customer_wpnumber=request.POST.get('customer_wpnumber')
+        country_id=request.POST.get('country_id')
         state_id=request.POST.get('state_id')
+        city_id=request.POST.get('city_id')
+        customer_address=request.POST.get('customer_address')
+        
+        
+        
+        country_obj=country.objects.get(id=country_id)
         state_obj=state.objects.get(id=state_id)
+        city_obj=city.objects.get(id=city_id)
         
-
-        city_obj=city.objects.get(id=id)
-        city_obj.city_name=city_name
-        city_obj.state_id=state_obj
-        city_obj.save()
         
-        return redirect(city_show)
-    city_obj=city.objects.get(id=id)
-    stateobj=state.objects.all()
+        
+        
+        country_obj=country.objects.get(id=id)
+        customer_obj.customer_name=customer_name
+        try:    
+            customer_obj.customer_image=customer_image
+        except:
+            pass
+        customer_obj=customer()
+        # customer_obj.customer_name=customer_name
+        customer_obj.customer_number=customer_number
+        customer_obj.customer_email=customer_email
+        customer_obj.customer_image=customer_image
+        customer_obj.customer_wpnumber=customer_wpnumber
+        customer_obj.country_id=country_obj
+        customer_obj.state_id=state_obj
+        customer_obj.city_id=city_obj
+        customer_obj.customer_address=customer_address    
+        customer_obj.save()
+            
+       
+        
+        
+        return redirect(customer_show)
+    customer_obj=customer.objects.get(id=id)
 
     context ={
-        'city_obj':city_obj,
-        'stateobj':stateobj,
-        
+        'customer_obj':customer_obj,
     }
-    return render(request,'city_update.html',context)
+    return render(request,'customer_update.html',context)
 
 
 
 
-
-def city_delete(request,id):
-    city_obj=city.objects.get(id=id)
-    city_obj.delete()
-    return redirect(city_show)
-
-
-def city_status(request, id):
-    
-    get_data =city.objects.get(id=id)
-    
-    if get_data.city_status == "True":
-        get_data.city_status="False"
-    else:
-        get_data.city_status="True"
-
-    get_data.save()
-    return redirect(city_show)
-
+def customer_delete(request,id):
+    customer_obj=customer.objects.get(id=id)
+    customer_obj.delete()
+    return redirect(customer_show)
 
     
     

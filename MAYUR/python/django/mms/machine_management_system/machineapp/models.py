@@ -86,7 +86,7 @@ class customer(models.Model):
     customer_name=models.CharField(max_length=200)
     customer_number=models.IntegerField()
     customer_email=models.CharField(max_length=200)
-    customer_image=models.ImageField(upload_to='categoryimage')
+    customer_image=models.ImageField(upload_to='customerimage')
     customer_wpnumber=models.IntegerField()
     country_id=models.ForeignKey(country, on_delete=models.CASCADE) 
     state_id=models.ForeignKey(state, on_delete=models.CASCADE)   

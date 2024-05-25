@@ -92,11 +92,11 @@
                 </ul>
              </li>
              <li>
-                <a href="#tables" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-table-line iq-arrow-left"></i><span>Table</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <a href="#tables" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-table-line iq-arrow-left"></i><span>Customer</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="tables" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="tables-basic.html"><i class="ri-table-line"></i>Basic Tables</a></li>
-                   <li><a href="data-table.html"><i class="ri-database-line"></i>Data Table</a></li>
-                   <li><a href="table-editable.html"><i class="ri-refund-line"></i>Editable Table</a></li>
+                   <li><a href="{% url 'customer_add' %}"><i class="ri-table-line"></i>Customer Add</a></li>
+                   <li><a href="{% url 'customer_show' %}"><i class="ri-database-line"></i>Customer Show</a></li>
+                   {% comment %} <li><a href="table-editable.html"><i class="ri-refund-line"></i>Editable Table</a></li> {% endcomment %}
                 </ul>
              </li>
              <li>

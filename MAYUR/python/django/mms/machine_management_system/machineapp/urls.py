@@ -105,7 +105,7 @@ path('customer_show',views.customer_show, name='customer_show'),
 path('customer_add/',views.customer_add,name='customer_add'),
 path('customer_update/<int:id>',views.customer_update,name='customer_update'),
 path('customer_delete/<int:id>',views.customer_delete,name='customer_delete'),
-path('customer_status/<int:id>',views.customer_status,name='customer_status'),
+# path('customer_status/<int:id>',views.customer_status,name='customer_status'),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

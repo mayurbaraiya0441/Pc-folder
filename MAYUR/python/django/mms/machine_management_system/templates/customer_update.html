@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block body %}
+<div id="content-page" class="content-page">
+     <div class="container-fluid">
+
+
+        
+        <form action="{%url 'customer_update' %}" method= "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Customer Name</span>
+                <input type="text" class="form-control" placeholder="Customer Name" name="customer_name">  
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Customer Number</span>
+                <input type="text" class="form-control" placeholder="Customer Number" name="customer_number">
+            </div>
+            <div>    
+                <span class="input-group-text" id="addon-wrapping">Customer Email</span>
+                <input type="text" class="form-control" placeholder="Customer Email" name="customer_email">
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Customer Image</span>
+                {% comment %} <input type="file" class="form-control" placeholder="category image" name="category_image"> {% endcomment %}
+                <input type="file" name="customer_image"   >
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Customer Wp Number</span>
+                <input type="text" class="form-control" placeholder="Customer wp number" name="customer wp number">
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Country Id</span>
+                <input type="text" class="form-control" placeholder="Country Id" name="country id">
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">State Id</span>
+                <input type="text" class="form-control" placeholder="State Id" name="state id">
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">City Id</span>
+                <input type="text" class="form-control" placeholder="City Id" name="city id">
+            </div>
+            <div>
+                <span class="input-group-text" id="addon-wrapping">Customer Address</span>
+                <input type="text" class="form-control" placeholder="Customer Address" name="customer address">
+            </div>
+  
+        </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
